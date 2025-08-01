@@ -10,4 +10,5 @@ class UI:
     @staticmethod
     def show_fps(settings, screen_manager):
         if (settings["SHOW_FPS"]):
-            text.render_text(screen_manager.screen, FontWeight.REGULAR, FontSize.BASE, f"{str(screen_manager.get_fps())[0:2]}", (50, 55, 60), (10, 0))
+            fps_text_surface = text.create_text_surface(FontWeight.REGULAR, FontSize.BASE, f"{str(screen_manager.get_fps())[0:2]}", (50, 55, 60))
+            text.render_text(screen_manager.screen, fps_text_surface, (10, 0))

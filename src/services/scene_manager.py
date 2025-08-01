@@ -2,8 +2,12 @@ from scenes import scenes
 
 class SceneManager:
     def __init__(self):
-        self.current_scene = scenes.Scenes.MAIN_MENU.value
+        self.current_scene = scenes.Scenes.MAIN_MENU
         self.game = None
+
+    def set_game(self, game):
+        self.game = game
+        self.current_scene = scenes.SCENE_MAP[self.current_scene]()
     
     def set_scene(self, scene):
         self.current_scene = scene
@@ -17,6 +21,3 @@ class SceneManager:
 
         self.current_scene.draw_screen(self.game.resource_manager, self.game.screen_manager)
         self.current_scene.handle_events()
-    
-    def set_game(self, game):
-        self.game = game

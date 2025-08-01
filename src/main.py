@@ -15,6 +15,5 @@ if __name__ == "__main__":
     game = Game(screen_manager, resource_manager, scene_manager)
 
     scene_manager.set_game(game)
-    resource_manager.load_assets()
 
     game.run()
