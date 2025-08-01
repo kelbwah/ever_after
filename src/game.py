@@ -8,9 +8,6 @@ class Game():
         self.is_running = True
     
     def run(self):
-        pygame.display.set_caption("Ever After")
-        self.resource_manager.load_assets()
-
         while self.is_running:
             self.screen_manager.dt = self.screen_manager.clock.tick(60) / 1000
 

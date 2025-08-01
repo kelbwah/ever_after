@@ -1,4 +1,5 @@
 import pygame
+from constants import Constants
 
 class ResourceManager:
     def __init__(self):
@@ -6,6 +7,7 @@ class ResourceManager:
         
     def load_assets(self):
         self.load_bg_images()
+        Constants.load_fonts()
 
     def load_bg_images(self):
         for i in range(1, 10):

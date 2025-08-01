@@ -7,16 +7,27 @@ class FontWeight(Enum):
     MEDIUM = "./assets/fonts/queensides-medium.ttf"
     BOLD = "./assets/fonts/queensides-bold.ttf"
 
-class Constants:
+class FontSize(Enum):
+    XS = 16
+    SM = 24
+    BASE = 36
+    LG = 48
+    XL = 64
+    XXL = 80
+    XXXL = 96
+
+class Constants:  
+    FONTS = {} 
+
+    @staticmethod
+    def load_fonts():
+        for weight in FontWeight:
+            Constants.FONTS[weight] = {}
+            for size in FontSize:
+                Constants.FONTS[weight][size] = pygame.font.Font(weight.value, size.value)
+        print(Constants.FONTS)
+
+
     @staticmethod
     def load_font(font_weight, size):
-        if (font_weight == FontWeight.LIGHT):
-            return pygame.font.Font(FontWeight.LIGHT.value, size)
-        elif (font_weight == FontWeight.REGULAR):
-            return pygame.font.Font(FontWeight.REGULAR.value, size)
-        elif (font_weight == FontWeight.MEDIUM):
-            return pygame.font.Font(FontWeight.MEDIUM.value, size)
-        elif (font_weight == FontWeight.BOLD):
-            return pygame.font.Font(FontWeight.BOLD.value, size)
-        else: 
-            raise ValueError("font_weight must be of type enum FontWeight")
+        return Constants.FONTS[font_weight][size]

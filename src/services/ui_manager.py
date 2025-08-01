@@ -1,6 +1,6 @@
-from constants import FontWeight
+from constants import FontWeight, FontSize
 from config import Config
-import text
+import components.text as text
 
 class UI:
     @staticmethod
@@ -10,4 +10,4 @@ class UI:
     @staticmethod
     def show_fps(settings, screen_manager):
         if (settings["SHOW_FPS"]):
-            text.render_text(screen_manager.screen, FontWeight.REGULAR, 36, f"{str(screen_manager.get_fps())[0:2]}", (50, 55, 60), (10, 0))
+            text.render_text(screen_manager.screen, FontWeight.REGULAR, FontSize.BASE, f"{str(screen_manager.get_fps())[0:2]}", (50, 55, 60), (10, 0))

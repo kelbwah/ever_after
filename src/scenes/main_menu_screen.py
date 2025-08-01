@@ -1,6 +1,6 @@
-import text
-from constants import FontWeight
-from ui import UI
+import components.text as text
+from constants import FontWeight, FontSize
+from services.ui_manager import UI
 
 class MainMenuScreen():
     def __init__(self):
@@ -12,8 +12,8 @@ class MainMenuScreen():
         self.draw_bg(resource_manager, screen_manager)
         UI.render_ui(screen_manager)
 
-        text.render_text(screen_manager.screen, FontWeight.BOLD, 72, "Ever After", self.text_color, (90, 60))
-        text.render_text(screen_manager.screen, FontWeight.REGULAR, 28, "A journey through love.", self.text_color, (90, 150))
+        text.render_text(screen_manager.screen, FontWeight.BOLD, FontSize.XXL, "Ever After", self.text_color, (90, 60))
+        text.render_text(screen_manager.screen, FontWeight.MEDIUM, FontSize.SM, "A journey through love.", self.text_color, (90, 165))
     
     def draw_bg(self, resource_manager, screen_manager):
         self.scroll += 0.1
