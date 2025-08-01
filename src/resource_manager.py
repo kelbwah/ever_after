@@ -1,6 +1,6 @@
 import pygame
 
-class Assets:
+class ResourceManager:
     def __init__(self):
         self.bg_images = []
         
